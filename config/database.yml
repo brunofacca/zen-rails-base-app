@@ -1,0 +1,59 @@
+# This file contains configurations for both PostgreSQL and MySQL, uncomment
+# the one you wish to use and keep the other commented out.
+
+# -------------------------------- PostgreSQL ----------------------------------
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # The following username and password are used for both development and test
+  # environments.
+  username: localdbuser
+  password: localdbpass
+
+development:
+  <<: *default
+  database: zen_rails_base_app_development
+
+test:
+  <<: *default
+  database: zen_rails_base_app_test
+
+production:
+  <<: *default
+  # Default config for Amazon Beanstalk + RDS. These environment variables
+  # are  available in Beanstalk environments which are linked to RDS instances.
+  database: <%= ENV['RDS_DB_NAME'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
+  host: <%= ENV['RDS_HOSTNAME'] %>
+  port: <%= ENV['RDS_PORT'] %>
+
+# ---------------------------------  MySQL -------------------------------------
+#default: &default
+#  adapter: mysql2
+#  encoding: utf8
+#  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  # The following username and password are used for both development and test
+#  # environments.
+#  username: root
+#  password: localdbpass
+#  socket: /var/run/mysqld/mysqld.sock
+#
+#development:
+#  <<: *default
+#  database: zen_rails_base_app_development
+#
+#test:
+#  <<: *default
+#  database: zen_rails_base_app_test
+#
+#production:
+#  <<: *default
+#  # Default config for Amazon Beanstalk + RDS. These environment variables
+#  # are  available in Beanstalk environments which are linked to RDS instances.
+#  database: <%= ENV['RDS_DB_NAME'] %>
+#  username: <%= ENV['RDS_USERNAME'] %>
+#  password: <%= ENV['RDS_PASSWORD'] %>
+#  host: <%= ENV['RDS_HOSTNAME'] %>
+#  port: <%= ENV['RDS_PORT'] %>

@@ -1,0 +1,12 @@
+en:
+  contact_forms:
+    new:
+      page_title: Contact
+      send_message: Send message
+      leave_this_field_blank: Leave this field blank.
+    create:
+      success: 'Message sent successfully. Thank you for contacting us. Expect
+      our reply soon.'
+      error: 'An error occurred when trying to send your message.'
+
+

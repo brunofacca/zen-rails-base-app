@@ -1,0 +1,24 @@
+en:
+  admin:
+    users:
+      index:
+        page_title: Users
+        email: E-mail
+        role: Role
+        full_name: Full Name
+      show:
+        page_title: Show User
+        email: E-mail
+        role: Role
+        full_name: Full Name
+      new:
+        page_title: New User
+      create:
+        success: User successfully created.
+      edit:
+        page_title: Edit User
+      update:
+        success: User successfully updated.
+        error: An error occurred when trying to update the user.
+      destroy:
+        success: User successfully deleted.

@@ -1,0 +1,135 @@
+// We need some variables declared in global.scss (mostly colors)
+@import "global";
+
+// General spacing
+.sm-margin-left {
+  margin-left: 10px;
+}
+
+.md-margin-left {
+  margin-left: 20px;
+}
+
+.lg-margin-left {
+  margin-left: 30px;
+}
+
+.sm-margin-right {
+  margin-right: 10px;
+}
+
+.md-margin-right {
+  margin-right: 20px;
+}
+
+.lg-margin-right {
+  margin-right: 30px;
+}
+
+.sm-margin-bottom {
+  margin-bottom: 10px;
+}
+
+.md-margin-bottom {
+  margin-bottom: 20px;
+}
+
+.lg-margin-bottom {
+  margin-bottom: 30px;
+}
+
+.sm-margin-top {
+  margin-top: 10px;
+}
+
+.md-margin-top {
+  margin-top: 20px;
+}
+
+.lg-margin-top {
+  margin-top: 30px;
+}
+
+// Text line and paragraph spacing
+.md-line-spacing {
+  p {
+    line-height: 1.8em;
+    margin-bottom: 15px !important;
+  }
+}
+
+
+// Text
+.small-text {
+  font-size: floor(($font-size-base * 0.9));
+}
+
+.smaller-text {
+  font-size: floor(($font-size-base * 0.8));
+}
+
+.light-text {
+  color: lighten($text-color, 10%);
+}
+
+.no-link-underline {
+  a, a:hover, a:focus {
+    text-decoration: none !important;
+  }
+}
+
+
+// Positioning
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+
+// Alignment
+.center-vh-container {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+  align-items: center; /* vertical centering */
+}
+
+.center-v-container {
+  display: flex;
+  align-items: center; /* vertical centering */
+}
+
+.center-h-container {
+  display: flex;
+  justify-content: center; /* horizontal centering */
+}
+
+.flex-align-row {
+  flex-align: row;
+  flex-wrap: nowrap;
+}
+
+.flex-centered-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* horizontal centering */
+}
+
+
+// Others
+.hidden {
+  display: none;
+}
+
+.disabled-button,
+.disabled-button:active,
+.disabled-button:focus,
+.disabled-button:hover {
+  color: #D7D6D7 !important;
+  background-color: #ABABAB !important;
+  pointer-events: none !important;
+  cursor: not-allowed !important;
+}

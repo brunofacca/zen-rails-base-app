@@ -1,0 +1,53 @@
+<%= form_for([:admin, @user],
+             html: { class: "form-horizontal", role: "form"}) do |f| %>
+
+  <%# Custom helper to display internationalized validation errors %>
+  <%= display_validation_errors(@user) %>
+
+  <div class="form-group">
+    <%= f.label :email, class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :password, class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.password_field :password,
+                           placeholder: password_placeholder,
+                           class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :password_confirmation, class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.password_field :password_confirmation,
+                           placeholder: password_placeholder,
+                           class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :role, class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.select :role, User.roles.keys, {}, {class: "form-control" } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :first_name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.text_field :first_name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :last_name, class: "col-sm-2 control-label" %>
+    <div class="col-sm-2">
+      <%= f.text_field :last_name, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>

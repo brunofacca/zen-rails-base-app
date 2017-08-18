@@ -1,0 +1,33 @@
+# This file contains translations that:
+# a) are not included in the downloadable dictionaries available at
+#    https://github.com/svenfuchs/rails-i18n
+# b) are used on multiple parts of the application
+
+en:
+  activerecord:
+    errors:
+      template:
+        header:
+          # Error messages for ActiveRecord CRUD forms, contact forms, etc.
+          # Should be generic enough to fit all use cases.
+          one: 'Error. Please fix the following item and try again:'
+          other: 'Error. Please fix the following %{count} items and try again:'
+  are_you_sure: Are you sure?
+  actions:
+    column_name: Actions
+    back: Back
+    new: New
+    show: Show Details
+    edit: Edit
+    delete: Delete
+    draft: Draft
+    ready: Ready to publish
+    publish: Publish
+    discard: Discard
+  filters:
+    any: Any
+    filters: Filters
+    apply: Apply
+    clear: Clear
+  authorization:
+    not_authorized: 'Sorry, you are not authorized to perform this action.'

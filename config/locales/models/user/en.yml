@@ -1,0 +1,16 @@
+en:
+  activerecord:
+    models:
+      user:
+        one: user
+        other: users
+    attributes:
+      user:
+        email: E-mail
+    errors:
+      models:
+        user:
+          attributes:
+            password:
+              weak_password: "must be 8 or more characters long, including at
+              least one lowercase letter, one uppercase letter, and one digit."

@@ -1,0 +1,9 @@
+en:
+  navigation:
+    home: Home
+    users: Users
+    contact: Contact
+    sign-in: Sign in
+    sign-up: Sign up
+    sign-out: Sign out
+    edit-profile: Edit profile

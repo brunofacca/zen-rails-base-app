@@ -1,0 +1,85 @@
+<div class="row">
+  <div class="page-header">
+    <%= link_to new_admin_user_path, class: "btn btn-primary" do %>
+      <span class="glyphicon glyphicon-plus"></span>
+      <%= t("actions.new") %>
+    <% end %>
+    <h1><%= t(".page_title") %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <%# Even though this is the right column, it's code should be above tha data
+  table's code, so the filters are on top of the table on mobile devices %>
+  <div class="col-md-3 col-md-push-9">
+    <div class="panel panel-default filter">
+      <div class="panel-heading"><%= t("filters.filters") %></div>
+      <div class="panel-body">
+        <%# Search and filters provided by the Ransack gem. %>
+        <%= search_form_for [:admin, @q] do |f| %>
+          <div class="form-group">
+            <%= f.label t(".email") %><br>
+            <%= f.search_field :email_cont, {class: "form-control"} %>
+          </div>
+
+          <div class="form-group">
+            <%= f.label t(".full_name") %><br>
+            <%= f.search_field :full_name_cont, {class: "form-control"} %>
+          </div>
+
+          <div class="form-group">
+            <%# When filtering enum attrs, must pass integer values to Ransack %>
+            <%= f.label t(".role") %><br>
+            <%= f.select :role_eq, User.roles,
+                         {include_blank: t("filters.any")},
+                         {class: "form-control"} %>
+          </div>
+
+          <div class="center-vh-container">
+            <%= button_tag t("filters.apply"),
+                           type: "submit",
+                           class: "btn btn-primary md-margin-right" %>
+
+            <%= link_to t("filters.clear"),
+                        request.path,
+                        class:"btn btn-primary" %>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="col-md-9 col-md-pull-3">
+    <div class="table-responsive">
+      <table class="table table-hover custom-index-table" id="users_table">
+        <thead>
+          <tr>
+            <th><%= sort_link(@q, :email, t(".email")) %></th>
+            <th><%= sort_link(@q, :role, t(".role")) %></th>
+            <th><%= sort_link(@q, :full_name, t(".full_name")) %></th>
+            <th><%= t("actions.column_name") %></th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% @users.each do |user| %>
+            <%# Do not use #content_tag_for as it leaks record IDs %>
+            <tr class="user" id="user_<%= user.slug %>">
+              <td class="email"><%= mail_to user.email %></td>
+              <td class="role"><%= user.role %></td>
+              <td class="full_name"><%= user.full_name %></td>
+              <td class="actions">
+                <%= render partial: "actions", locals: {user: user} %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flex-centered-column">
+      <span><%= page_entries_info @users %></span>
+      <%= paginate @users %>
+    </div>
+  </div>
+</div>

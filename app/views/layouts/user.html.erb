@@ -1,0 +1,10 @@
+<% content_for :navigation_menu do %>
+  <%# Menu items that that should only appear in the navbar of users with
+  "user" role (non-admin users) %>
+
+  <%= render 'layouts/base_menu_items' %>
+<% end %>
+
+<%# Render the base layout (application.html.erb), to which this layout will
+pass the menu items %>
+<%= render template: "layouts/application" %>

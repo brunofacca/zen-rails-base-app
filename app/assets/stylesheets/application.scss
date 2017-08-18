@@ -1,0 +1,18 @@
+/*
+ *= require_tree .
+ *= require_self
+ *= require select2
+ *= require select2-bootstrap
+ */
+
+// Contains our custom variables which override their equivalents in
+// bootstrap _variables.scss. Must be imported before "bootstrap" and
+// "bootstrap-sprockets".
+@import "global";
+
+// "bootstrap-sprockets" must be imported before "bootstrap" and
+// "bootstrap/variables
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Put "global" SCSS code in global.scss, not here.

@@ -1,0 +1,19 @@
+<%# Custom helper to display internationalized validation errors %>
+<%= display_validation_errors(resource) %>
+
+<div class="panel panel-default devise-bs">
+  <div class="panel-heading">
+    <h4><%= t('.forgot_your_password', default: 'Forgot your password?') %></h4>
+  </div>
+  <div class="panel-body">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, role: "form" }) do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, autofocus: true, class: "form-control" %>
+      </div>
+
+      <%= f.submit t('.send_me_reset_password_instructions', default: "Send me reset password instructions"), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
+<%= render "devise/shared/links" %>

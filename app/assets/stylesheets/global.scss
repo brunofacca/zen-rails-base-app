@@ -1,0 +1,269 @@
+// This file includes all "global" SCSS code (used by views rendered by more
+// than one controllerall. It includes Bootstrap customizations.
+//
+// Controller-specific SCSS should be placed in separate file named after the
+// controller, in the controller_specific/ folder.
+//
+// By loading this file (with @import) in the manifest BEFORE "boostrap" and
+// "bootstrap-sprockets", all variables defined here will overwrite
+// bootstrap-sass variables with the same name. That happens because all
+// variables are declared with !default in _variables.scss (within the
+// bootstrap-sass gem).
+//
+// If you wish to customize other Bootstrap aspects or components, look for
+// their variables names in _variables.scss and define those variables here. See
+// https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss
+//
+// Always prefer to customize Bootstrap through these variables. Only use custom
+// CSS to override Bootstrap's CSS as a last resort (when there is no variable
+// in bootstrap _variables.scss that does what you need).
+
+
+// Base colors
+$brand-primary: #002f5e;
+// Used in navbar and button hovers and in links
+$brand-light:           lighten(desaturate($brand-primary, 20%), 15%);
+// Used in form input field focus (glowing border), the "info" color
+$brand-lighter:         lighten(desaturate($brand-primary, 20%), 30%);
+
+// Shades of gray
+$gray-lighter:           lighten(#000, 93.5%);
+$gray-lightest:          lighten(#000, 98%);
+
+// Page headers (no variable available)
+.page-header {
+  margin-top: 0px !important;
+  a.btn {
+    float: right;
+  }
+
+  a.btn + a.btn {
+    margin-right: 8px;
+  }
+}
+
+// Body
+$body-bg:               white;
+body {
+  padding-right: 30px;
+  padding-left: 30px;
+}
+
+// Alerts and form feedback states
+$state-info-text:                desaturate($brand-primary, 20%);
+$state-info-bg:                  lighten(desaturate($brand-primary, 40%), 70%);
+$state-info-border:              darken(adjust-hue($state-info-bg, -10), 10%);
+
+// Links
+$link-color:            $brand-light;
+$link-hover-color:      $brand-light;
+$link-hover-decoration: underline;
+
+// Text
+$text-color:              #444;
+$font-size-base:          14px;
+$font-family-sans-serif:
+  // Safari for OS X and iOS (San Francisco)
+  -apple-system,
+  // Chrome >= 56 for OS X (San Francisco), Windows, Linux and Android
+  system-ui,
+  // Chrome < 56 for OS X (San Francisco)
+  BlinkMacSystemFont,
+  // Windows
+  "Segoe UI",
+  // Android
+  "Roboto",
+  // Basic web fallback
+  "Helvetica Neue", Arial, sans-serif !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+
+// Headings
+$headings-font-weight:    400;
+$headings-color:          desaturate($brand-primary, 20%);
+$font-size-h1:            floor(($font-size-base * 1.5));
+$font-size-h2:            floor(($font-size-base * 1.4));
+$font-size-h3:            ceil(($font-size-base * 1.3));
+$font-size-h4:            ceil(($font-size-base * 1.2));
+// Reduce margin-top of headers
+h1, .h1 {
+  margin-top: 0 !important;
+}
+
+// Buttons
+$btn-primary-color:              #fff;
+$btn-primary-bg:                 $brand-primary;
+$btn-primary-border:             $gray-lighter;
+// There is no variable for the button bg color on hover, active and focus
+.btn-primary {
+  &:hover, &:focus, &:active, &:active:hover, &:active:focus {
+    background: $brand-light !important;
+    border-colorbackground: $brand-light !important;
+  }
+}
+
+// Dropdowns (including the dropdown in the Navbar)
+$dropdown-bg:                    white;
+$dropdown-border:                rgba(0,0,0,.15);
+$dropdown-divider-bg:            #e5e5e5;
+$dropdown-link-color:            $text-color;
+$dropdown-link-hover-color:      $brand-light;
+$dropdown-link-hover-bg:         white;
+
+// Forms
+$input-border-focus:             $brand-lighter;
+// Highlight form fields with validation errors. Rails automatically wraps
+// them in a div with the field_with_errors class.
+.field_with_errors {
+  input, select {
+    border: 1px solid #A94442;
+  }
+}
+
+// Search/filter wells
+.filter, panel {
+  > .panel-heading {
+    background-color: $gray-lighter !important;
+    font-weight: 500;
+  }
+  > .panel-body {
+    background-color: $gray-lightest !important;
+    label, .form-control, .btn {
+      font-size: 13px;
+      font-weight: normal !important;
+    }
+  }
+}
+
+// Navbar
+$navbar-height:                    50px;
+$navbar-default-color:             white;
+$navbar-default-bg:                desaturate($brand-primary, 10%);
+$navbar-default-link-color:                white;
+$navbar-default-link-hover-color:          white;
+$navbar-default-link-hover-bg:             $brand-light;
+$navbar-default-link-active-color:         white;
+$navbar-default-link-active-bg:            $brand-light;
+$navbar-default-link-disabled-color:       $gray-lighter;
+$navbar-default-link-disabled-bg:          $brand-light;
+// Navbar items font weight
+.nav > li > a {
+  font-weight: 500;
+}
+// Prevent navbar from covering other elements
+body {
+  padding-top: $navbar-height + 20px;
+}
+// Centralize logo vertically in the navbar
+.navbar-brand {
+  padding-top: 10px !important;
+}
+
+// Pagination
+$pagination-color:                     $link-color;
+$pagination-bg:                        white;
+$pagination-border:                    $gray-lighter;
+
+$pagination-hover-color:               white;
+$pagination-hover-bg:                  $brand-primary;
+$pagination-hover-border:              transparent;
+
+$pagination-active-color:              white;
+$pagination-active-bg:                 $brand-primary;
+$pagination-active-border:             transparent;
+
+// Tooltips
+$tooltip-max-width:           200px;
+$tooltip-color:               white;
+$tooltip-bg:                  $brand-primary;
+$tooltip-opacity:             .9;
+$tooltip-arrow-width:         5px;
+$tooltip-arrow-color:         $tooltip-bg;
+
+// Progress bar
+$progress-bar-bg:             $brand-primary;
+
+// Description lists
+dt, dd {
+  padding: 5px 0 5px 0;
+}
+
+// Fix Bootstrap's center-block class used to center block elements horizontally.
+// Without this fix, it gets run over by the float property of the container.
+.center-block {float: none !important}
+
+// Footer
+.footer {
+  margin-top: 10px;
+}
+
+// Tables for index views
+.custom-index-table {
+  // "Actions" column of the index tables
+  th:last-of-type {
+    width: 120px;
+  }
+  td:last-of-type {
+    text-align: center;
+    a {
+      text-decoration: none !important;
+    }
+  }
+  th, td {
+    vertical-align: middle !important;
+    padding: 10px !important;
+  }
+  th {
+    text-align: center;
+    background-color: $gray-lighter;
+    font-weight: 500;
+  }
+  // Rounded borders
+  @extend .table-curved;
+}
+// Rounder borders
+.table-curved {
+  border-collapse: separate;
+  border: solid $gray-lighter 1px;
+  border-radius: 6px;
+  border-left: 0px;
+  border-top: 0px;
+
+  thead:first-child tr:first-child th {
+    border-bottom: 0px;
+    border-top: solid $gray-lighter 1px;
+  }
+
+  td, th {
+    border-left: 1px solid $gray-lighter;
+    border-top: 1px solid $gray-lighter;
+  }
+
+  :first-child :first-child {
+    :first-child {
+      border-top-left-radius: 6px;
+    }
+    :last-child {
+      border-top-right-radius: 6px;
+    }
+  }
+
+  :last-child :last-child {
+    :first-child {
+      border-bottom-left-radius: 6px;
+    }
+    :last-child {
+      border-bottom-right-radius: 6px;
+    }
+  }
+}
+
+// Action glyphicons (show, edit, delete, etc)
+.action-icon {
+  font-size: 1.2em; // Glyphicon size
+  margin: 2px;
+  color: $brand-primary !important; // Glyphicon color
+  &:hover, &:focus {
+    color: $link-hover-color !important;
+  }
+}

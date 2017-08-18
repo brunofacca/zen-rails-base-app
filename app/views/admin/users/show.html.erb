@@ -1,0 +1,23 @@
+<div class="page-header">
+  <%= link_to admin_users_path, class: 'btn btn-default' do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+    <%= t('actions.back') %>
+  <% end %>
+
+  <h1><%= t('.page_title') %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <div class="no-link-underline float-right">
+    <%= render partial: 'actions', locals: {user: @user} %>
+  </div>
+
+  <dt><%= t('.email') %></dt>
+  <dd><%= mail_to @user.email %></dd>
+
+  <dt><%= t('.role') %></dt>
+  <dd><%= @user.role %></dd>
+
+  <dt><%= t('.full_name') %></dt>
+  <dd><%= @user.full_name %></dd>
+</dl>
