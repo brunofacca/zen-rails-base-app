@@ -120,7 +120,12 @@ $input-border-focus:             $brand-lighter;
   }
 }
 
-// Search/filter wells
+// Labels
+label, dt {
+  font-weight: 600 !important;
+}
+
+// Search/filter panels
 .filter, panel {
   > .panel-heading {
     background-color: $gray-lighter !important;
@@ -128,10 +133,8 @@ $input-border-focus:             $brand-lighter;
   }
   > .panel-body {
     background-color: $gray-lightest !important;
-    label, .form-control, .btn {
-      font-size: 13px;
-      font-weight: normal !important;
-    }
+    font-size: 13px !important;
+    font-weight: normal !important;
   }
 }
 

@@ -1,7 +1,52 @@
 // We need some variables declared in global.scss (mostly colors)
 @import "global";
 
-// General spacing
+// Padding
+.no-padding {
+  padding: 0 !important;
+}
+
+.no-padding-top {
+  padding-top: 0 !important;
+}
+
+.no-padding-bottom {
+  padding-bottom: 0 !important;
+}
+
+.no-padding-left {
+  padding-left: 0 !important;
+}
+
+.no-padding-right {
+  padding-right: 0 !important;
+}
+
+.xs-padding-left {
+  padding-left: 5px !important;
+}
+
+.xs-padding-right {
+  padding-right: 5px !important;
+}
+
+.xs-padding-bottom {
+  padding-bottom: 5px !important;
+}
+
+.xs-padding-top {
+  padding-top: 5px !important;
+}
+
+.sm-padding-left {
+  padding-left: 10px !important;
+}
+
+// Margin
+.no-margin {
+  margin: 0 !important;
+}
+
 .sm-margin-left {
   margin-left: 10px;
 }
@@ -69,7 +114,7 @@
 }
 
 .light-text {
-  color: lighten($text-color, 10%);
+  color: lighten($text-color, 20%);
 }
 
 .no-link-underline {

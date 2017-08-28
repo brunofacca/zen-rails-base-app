@@ -1,8 +1,10 @@
 /*
- *= require_tree .
+
  *= require_self
  *= require select2
  *= require select2-bootstrap
+ *= require sweetalert2/dist/sweetalert2
+ *= require_tree .
  */
 
 // Contains our custom variables which override their equivalents in

@@ -13,7 +13,7 @@ User.create!([
                  # Admin
                  # E-mail doesn't have to be valid as no e-mails are sent
                  # in the development environment (we're using Letter Opener)
-                 email: 'admin@myapp.com',
+                 email: 'admin@test.com',
                  password: DEVELOPMENT_PASSWORD,
                  password_confirmation: DEVELOPMENT_PASSWORD,
                  role: :admin,
@@ -23,7 +23,7 @@ User.create!([
                  confirmed_at: Time.zone.today,
                }, {
                  # Ordinary user (non-admin)
-                 email: 'user@myapp.com',
+                 email: 'admin@test.com',
                  password: DEVELOPMENT_PASSWORD,
                  password_confirmation: DEVELOPMENT_PASSWORD,
                  role: :user,

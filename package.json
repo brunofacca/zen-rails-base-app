@@ -1,5 +1,11 @@
 {
   "name": "zen_rails_base_app",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "sweetalert2": "^6.6.9"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Bruno Facca <bruno@facca.info>",
+  "license": "MIT"
 }

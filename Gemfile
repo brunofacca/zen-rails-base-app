@@ -32,6 +32,9 @@ gem 'bootstrap-sass'
 gem 'city-state'
 # Authentication
 gem 'devise'
+# Generate fake user names, e-mails, adresses, IPs, lorem text, etc. Include
+# in all environments as we might use it to seed the DB in test deploys.
+gem 'faker'
 # Use slugs instead of IDs in URLs. Makes prettier URLs, improves SEO and avoids
 # leaking DB IDs (for security reasons).
 gem 'friendly_id'
@@ -73,9 +76,7 @@ group :development, :test do
   gem 'spring-commands-rspec'
   gem 'selenium-webdriver'
   # code coverage analysis tool
-  gem 'simplecov', :require => false
-  # Generate fake user names, e-mails, adresses, IPs, lorem text, etc.
-  gem 'faker'
+  gem 'simplecov', require: false
 end
 
 group :development do

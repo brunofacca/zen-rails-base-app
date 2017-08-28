@@ -21,13 +21,19 @@ test:
 
 production:
   <<: *default
-  # Default config for Amazon Beanstalk + RDS. These environment variables
-  # are  available in Beanstalk environments which are linked to RDS instances.
-  database: <%= ENV['RDS_DB_NAME'] %>
-  username: <%= ENV['RDS_USERNAME'] %>
-  password: <%= ENV['RDS_PASSWORD'] %>
-  host: <%= ENV['RDS_HOSTNAME'] %>
-  port: <%= ENV['RDS_PORT'] %>
+  # HEROKU
+  # Heroku uses the DATABASE_URL environment variable to configure the DB
+  # connection. You should *NOT* set adapter, database, username, password, host
+  # or port in this file.
+
+  # AMAZON ELASTIC BEANSTALK + AMAZON RDS
+  # These environment variables are available in any Beanstalk environment
+  # that is linked to an RDS instance.
+  # database: <%= ENV['RDS_DB_NAME'] %>
+  # username: <%= ENV['RDS_USERNAME'] %>
+  # password: <%= ENV['RDS_PASSWORD'] %>
+  # host: <%= ENV['RDS_HOSTNAME'] %>
+  # port: <%= ENV['RDS_PORT'] %>
 
 # ---------------------------------  MySQL -------------------------------------
 #default: &default

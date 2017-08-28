@@ -6,6 +6,10 @@ RSpec::Matchers.define :be_invalid_without_a do |attribute, **factory_args|
     empty_value = object.send(attribute).respond_to?(:each) ? [] : nil
     object.send("#{attribute}=", empty_value)
     object.valid?
-    expect(object.errors[attribute]).to include("can't be blank")
+    # Must match Rails default error messages for both "validates :foo,
+    # presence: true" and belongs_to, whose presence is validates by default
+    # as of Rails 5.
+    expect(object.errors[attribute]).to \
+      include("can't be blank").or include("must exist")
   end
 end
