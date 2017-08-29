@@ -125,7 +125,7 @@
                 ----------------------------------------------------------------
                 jqXHR.responseText (first 200 characters):
                 ${(jqXHR.responseText !== undefined) ? jqXHR.responseText
-                    .substring(0, 200) : null}
+                .substring(0, 200) : null}
                 ----------------------------------------------------------------
                 The context (this) of the callback contains:
                 ${JSON.stringify(this, null, 4)}

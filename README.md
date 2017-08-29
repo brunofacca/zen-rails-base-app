@@ -38,11 +38,15 @@ It consists of a Rails 5.1.3 app, including:
 gem](https://github.com/plataformatec/devise).
 - Preconfigured authorization with the [Pundit
 gem](https://github.com/elabs/pundit).
-- Internationalization (i18n): All of the base application's strings are in 
-YML dictionaries. This is arguably a good practice even for single language 
-applications. Having an internationalized base application makes it easier
-and faster to translate elements like Devise, the layout and error messages 
-when creating a single language app in a non-English language.
+- Internationalization (i18n)
+  - All of the base application's strings are in YML dictionaries. This is
+  arguably a good practice even for single language applications. Having an
+  internationalized base application makes it easier and faster to translate
+  elements like Devise, the layout and error messages when creating a single
+  language app in a non-English language.
+  - Methods for translating enum attributes, including the generation of
+  translated options for select boxes. Implemented and documented in
+  [app/models/application_record.rb](https://github.com/brunofacca/zen-rails-base-app/blob/master/app/models/application_record.rb)
 - jQuery
 - HTML Layouts developed with Bootstrap 3 ([bootstrap-sass
 gem](https://github.com/twbs/bootstrap-sass)) to use as a starting point,
