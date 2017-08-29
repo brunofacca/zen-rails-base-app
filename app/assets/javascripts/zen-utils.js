@@ -43,8 +43,8 @@
 
         // Formats a date object as mm/dd/yyyy.
         dateToMDY(date) {
-            // Day and month start at zero (e.g., January is 0)
-            var day = date.getDate() + 1;
+            var day = date.getDate();
+            // Month starts at zero (e.g., January is 0)
             var month = date.getMonth() + 1;
             var year = date.getFullYear();
             return ZenUtils.pad(month) + "/" + ZenUtils.pad(day) + "/" + year;
