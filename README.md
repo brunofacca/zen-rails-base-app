@@ -5,11 +5,15 @@ Base or "skeleton" application for Ruby on Rails 5.1 projects. Built to
 minimize the time spent writing boilerplate code and performing repetitive 
 setup tasks. 
 
-Instead of using the Rails templating system to allow the user to choose which
-templating engine, test framework, JS framework and other tools to use, it comes
-with a preselected set of tools (which I use in most of my projects). If you are
-looking for a more flexible application template, [Rails
-Composer](http://www.railscomposer.com/) may be a better fit.
+It comes with a preselected set of tools which I believe to be the most
+efficient and widely used. If you are looking for greater flexibility, an
+application template which uses Rails's templating system such as [Rails
+Composer](http://www.railscomposer.com/) should be a better fit as it allows
+the user to choose which templating engine, test framework, JS framework and
+other tools to use.
+
+Although this project is opinionated regarding tool choices, community 
+feedback and contributions are always welcome and highly appreciated.
 
 ## Features
 It consists of a Rails 5.1.3 app, including:
@@ -27,20 +31,22 @@ It consists of a Rails 5.1.3 app, including:
     [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/),
     [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner),
     and [SimpleCov](https://github.com/colszowka/simplecov).
-    - General purpose test helpers, custom matchers and shared examples. See 
-    `spec/support`. 
+    - General purpose test helpers, custom matchers and shared examples in
+    [spec/support](https://github.com/brunofacca/zen-rails-base-app/tree/master/spec/support).
+    
 - Preconfigured authentication with the [Devise
-gem](https://github.com/plataformatec/devise)
+gem](https://github.com/plataformatec/devise).
 - Preconfigured authorization with the [Pundit
-gem](https://github.com/elabs/pundit)
+gem](https://github.com/elabs/pundit).
 - Internationalization (i18n): All of the base application's strings are in 
 YML dictionaries. This is arguably a good practice even for single language 
 applications. Having an internationalized base application makes it easier
 and faster to translate elements like Devise, the layout and error messages 
-(e.g., when creating a single language app in a non-English language).
+when creating a single language app in a non-English language.
 - jQuery
-- HTML Layouts (to use as a starting point) developed with Bootstrap 3 
-([bootstrap-sass gem](https://github.com/twbs/bootstrap-sass)), including:
+- HTML Layouts developed with Bootstrap 3 ([bootstrap-sass
+gem](https://github.com/twbs/bootstrap-sass)) to use as a starting point,
+including:
     - Navigation bar;
     - Displaying of flash messages and validation errors as Bootstrap alerts;
     - Role-based layout switching: different layouts for guests 
@@ -59,19 +65,19 @@ create them:
     - Admin user: email: `admin@test.com` / password: `Devpass1`
 - Contact form built with the [mail_form
 gem](https://github.com/plataformatec/mail_form).
-- E-mails "sent" in the development environment are saved in html files at
+- E-mails "sent" in the development environment are saved as html files in
 `tmp/letter_opener` ([letter_opener
 gem](https://github.com/ryanb/letter_opener)).
 - The following JavaScript libraries:
   - [Select2](https://github.com/select2/select2) for better select boxes.
-  - [SweetAlert2](https://github.com/limonte/sweetalert2) for better JS 
-  popups. The default `data-confirm` confirmation is replaced by a 
+  - [SweetAlert2](https://github.com/limonte/sweetalert2) for better JS popups,
+  including the replacement of the default `data-confirm` confirmation by a
   better-looking version.
-  - ZenUtils: a small JavaScript library consisting of utility functions. See 
-`app/assets/javascripts/zen-utils.js`  
-- SCSS utility classes for alignment, spacing and font size standardization. 
-See `app/assets/stylesheets/utility-classes.scss`.
-- Test coverage of 97%.
+  - ZenUtils: a small JavaScript library consisting of utility functions. See
+  [app/assets/javascripts/zen-utils.js](https://github.com/brunofacca/zen-rails-base-app/blob/master/app/assets/javascripts/zen-utils.js).  
+- SCSS utility classes for alignment, spacing and font size standardization. See
+[app/assets/stylesheets/utility-classes.scss](https://github.com/brunofacca/zen-rails-base-app/blob/master/app/assets/stylesheets/utility-classes.scss).
+- High test coverage.
 
 ## Development Environment Dependencies
 - Ruby 2.3+
@@ -108,8 +114,8 @@ from `ZenRailsBaseApp` to your application name, in camel case.
 4. Run `bundle install`
 5. Configure the databases:
  
-    1. If using PostgreSQL, uncomment the `pg` gem from the `Gemfile`, if 
-    using MySQL uncomment the `mysql2` gem.
+    1. If using PostgreSQL, uncomment the `pg` gem from the `Gemfile`. If 
+    using MySQL, uncomment the `mysql2` gem.
 
     2. Uncomment the section of `config/database.yml` corresponding to your 
     chosen DBMS.
@@ -117,23 +123,23 @@ from `ZenRailsBaseApp` to your application name, in camel case.
 5. Customise the authentication setup. You may want to change one or more of 
 the following items: 
     - Aside from Devise's default attributes,
-    the `User` model of this app also has `role`, `first_name`, and `last_name` 
-    attributes. 
-    - Aside from the Devise modules that are activated by default, this app 
-    also uses the Confirmable, Timeoutable and Lockable modules. 
-    - The app uses Pundit for authorization. The `User` model has an enum
-    attribute called `role`, with `user` and `admin` as its possible values and
-    `user` as a default value. 
-    - Devise configurations at `config/initializers/devise.rb`, 
-    especially `config.mailer_sender`. 
+    the `User` model also has `role`, `first_name`, and `last_name` attributes. 
+    - Aside from the Devise's default modules, this app also uses
+    [Confirmable](http://www.rubydoc.info/github/plataformatec/devise/Devise/Models/Confirmable),
+    [Timeoutable](http://www.rubydoc.info/github/plataformatec/devise/Devise/Models/Timeoutable)
+    and
+    [Lockable](http://www.rubydoc.info/github/plataformatec/devise/Devise/Models/Lockable).
+    - Pundit is used for for authorization. The `User` model has an enum
+    attribute called `role`. Its possible values are `:user` and `:admin`. The
+    default value is `:user`.
 5. Customize the application colors by overwriting Bootstrap's variables in 
-`app/assets/stylesheets/global.scss`
+`app/assets/stylesheets/global.scss`.
 6. Remove unused items from the application, such as gems from the `Gemfile`, 
 RSpec helpers, custom matchers and shared examples from `spec/support`. 
 
-
 ## TODO
 - Set up CodeClimate with Rubocop, Reek and Brakeman engines.
+- Set up continuous integration.
 - Use Yarn instead of gems to install front end libraries such as jQuery and 
 Select2.
 - Add an asterisk to the labels of required form fields.

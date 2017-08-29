@@ -265,9 +265,8 @@ describe 'User management for admins', type: :feature, js: true do
     let(:deletable_user) { FactoryGirl.create(:user) }
 
     def click_delete
-      page.accept_alert I18n.t('are_you_sure') do
-        find_by_i18n_title('actions.delete').click
-      end
+      find_by_i18n_title('actions.delete').click
+      click_on "Confirm"
     end
 
     it 'requires login' do

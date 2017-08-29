@@ -65,6 +65,8 @@ group :test do
 end
 
 group :development, :test do
+  # Detects N+1 queries and unused eager loading
+  gem 'bullet'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   # console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -87,8 +89,8 @@ group :development do
   gem 'binding_of_caller'
   # A static analysis security vulnerability scanner for Ruby on Rails apps
   gem 'brakeman', require: false
-  # Detects N+1 queries and unused eager loading
-  gem 'bullet'
+  # Required by rack-mini-profiler' for call-stack profiling flamegraphs
+  gem 'flamegraph'
   # Open "sent" e-mails in your browser instead of actually sending them
   gem 'letter_opener'
   gem 'listen', '>= 3.0.5', '< 3.2'
@@ -96,8 +98,13 @@ group :development do
   gem 'pry-doc'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'rename'
+  # Database, call-stack and memory profiling
+  gem 'rack-mini-profiler'
+  # Required by rack-mini-profiler for memory profiling
+  gem 'memory_profiler'
   gem 'rubocop'
+  # Required by rack-mini-profiler for call-stack profiling
+  gem 'stackprof'     # For Ruby MRI 2.1+
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
   gem 'web-console', '>= 3.3.0'
