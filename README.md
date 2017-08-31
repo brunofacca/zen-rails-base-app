@@ -89,8 +89,9 @@ gem](https://github.com/ryanb/letter_opener)).
 - Required for running JavaScript-enabled feature specs:
     - [Selenium](http://www.seleniumhq.org/projects/webdriver/)
     - [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)
-    - [Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml) if running feature specs on a console-only (no graphical 
-    interface) *nix environment.
+    - [Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml) if
+    running feature specs on a console-only (no graphical interface) *nix
+    environment.
 
 Consider using my [Zen Rails Development
 Environment](https://github.com/brunofacca/rails-development-environment). It
@@ -115,8 +116,11 @@ from `ZenRailsBaseApp` to your application name, in camel case.
         - Replace `replace@me.com`  manually by the different e-mail addresses
         that should send and receive e-mails in various parts of the 
         application.
-4. Run `bundle install`
-5. Configure the databases:
+4. Run `bundle install` to install the gems listed in the `Gemfile` and their 
+dependencies.
+5. Run `yarn install` to install the front end (JavaScript) packages listed 
+in `packages.json` and their dependencies.
+6. Configure the databases:
  
     1. If using PostgreSQL, uncomment the `pg` gem from the `Gemfile`. If 
     using MySQL, uncomment the `mysql2` gem.
@@ -124,7 +128,7 @@ from `ZenRailsBaseApp` to your application name, in camel case.
     2. Uncomment the section of `config/database.yml` corresponding to your 
     chosen DBMS.
   
-5. Customise the authentication setup. You may want to change one or more of 
+7. Customise the authentication setup. You may want to change one or more of 
 the following items: 
     - Aside from Devise's default attributes,
     the `User` model also has `role`, `first_name`, and `last_name` attributes. 
@@ -136,13 +140,13 @@ the following items:
     - Pundit is used for for authorization. The `User` model has an enum
     attribute called `role`. Its possible values are `:user` and `:admin`. The
     default value is `:user`.
-5. Customize the application colors by overwriting Bootstrap's variables in 
+8. Customize the application colors by overwriting Bootstrap's variables in 
 `app/assets/stylesheets/global.scss`.
-6. Remove unused items from the application, such as gems from the `Gemfile`, 
+9. Remove unused items from the application, such as gems from the `Gemfile`, 
 RSpec helpers, custom matchers and shared examples from `spec/support`. 
 
 ## TODO
-- Set up CodeClimate with Rubocop, Reek and Brakeman engines.
+- Set up CodeClimate with Rubocop, Reek, Brakeman, and ESLint engines.
 - Set up continuous integration.
 - Use Yarn instead of gems to install front end libraries such as jQuery and 
 Select2.
