@@ -23,7 +23,7 @@ User.create!([
                  confirmed_at: Time.zone.today,
                }, {
                  # Ordinary user (non-admin)
-                 email: 'admin@test.com',
+                 email: 'user@test.com',
                  password: DEVELOPMENT_PASSWORD,
                  password_confirmation: DEVELOPMENT_PASSWORD,
                  role: :user,
