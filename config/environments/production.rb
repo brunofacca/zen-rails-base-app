@@ -2,11 +2,11 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in
   # config/application.rb.
   config.middleware.use ExceptionNotification::Rack,
-    email: {
-      email_prefix: '[EXCEPTION] ',
-      sender_address: %{"Project Name" <replace@me.com>},
-      exception_recipients: %w{replace@me.com}
-    }
+                        email: {
+                          email_prefix: '[EXCEPTION] ',
+                          sender_address: %[Project Name" <replace@me.com>],
+                          exception_recipients: %w[replace@me.com]
+                        }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
@@ -70,7 +70,7 @@ Rails.application.configure do
   config.log_level = :debug
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [ :request_id ]
+  config.log_tags = [:request_id]
 
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
@@ -98,7 +98,7 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'
-  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
+  # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app')
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false

@@ -10,6 +10,6 @@ RSpec::Matchers.define :be_invalid_without_a do |attribute, **factory_args|
     # presence: true" and belongs_to, whose presence is validates by default
     # as of Rails 5.
     expect(object.errors[attribute]).to \
-      include("can't be blank").or include("must exist")
+      include('can\'t be blank').or include('must exist')
   end
 end

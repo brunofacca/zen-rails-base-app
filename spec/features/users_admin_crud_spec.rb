@@ -266,7 +266,7 @@ describe 'User management for admins', type: :feature, js: true do
 
     def click_delete
       find_by_i18n_title('actions.delete').click
-      click_on "Confirm"
+      click_on 'Confirm'
     end
 
     it 'requires login' do

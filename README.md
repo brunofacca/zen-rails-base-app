@@ -161,6 +161,12 @@ Select2.
 - Internationalize and translate the JS front end, mainly `global.js` and 
 `zen-utils.js`.
 
+## Authors
+
+- **Bruno Facca** - [Twitter](https://twitter.com/bruno_facca) - 
+[LinkedIn](https://www.linkedin.com/in/brunofacca/) - Email: bruno at facca 
+dot info
+
 ## Contributing
 
 **Bug reports**

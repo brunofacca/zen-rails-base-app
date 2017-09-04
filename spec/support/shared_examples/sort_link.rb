@@ -8,21 +8,19 @@
 #   argument method, and returns a regex object that matches the data in
 #   the index view (an HTML table) with the expected sort order.
 #
-# describe "sorting" do
+# describe 'sorting' do
 #   before(:each) do
 #     # Create 3 records here (with unique values in all sortable attributes)
-#   include_examples "sort link",
+#   include_examples 'sort link',
 #                    model: User,
-#                    page_path: "/admin/users",
+#                    page_path: '/admin/users',
 #                    initial_sort_order: :full_name,
 #                    # Hash with sort link text as keys and their corresponding
 #                    # sorted attributes as values.
 #                    sort_links_and_attributes: {
-#                      "E-mail" => :email,
-#                      "Role" => :role,
-#                      "Country" => :country,
-#                      "Sangha" => :sangha,
-#                      "Quotes" => :quotes_count
+#                      'E-mail' => :email,
+#                      'Role' => :role,
+#                      'Country' => :country,
 #                    }
 # end
 RSpec.shared_examples 'sort link' do |model:, page_path:, initial_sort_order:,
