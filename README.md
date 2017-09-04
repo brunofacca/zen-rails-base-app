@@ -63,10 +63,7 @@ including:
 ([ransack
 gem](https://github.com/activerecord-hackery/ransack)). Accessible only by 
 users with "admin" role. 
-- Seed users for the development environment. Run `rails db:seed` to 
-create them:
-    - Ordinary user: email: `user@test.com` / password: `Devpass1`
-    - Admin user: email: `admin@test.com` / password: `Devpass1`
+- Seed users for the development environment.
 - Contact form built with the [mail_form
 gem](https://github.com/plataformatec/mail_form).
 - E-mails "sent" in the development environment are saved as html files in
@@ -128,7 +125,12 @@ in `packages.json` and their dependencies.
     2. Uncomment the section of `config/database.yml` corresponding to your 
     chosen DBMS.
   
-7. Customise the authentication setup. You may want to change one or more of 
+7. Before attempting to run the application or its test suite, run `rails 
+db:create db:migrate db:seed` within the project's root directory. That will 
+create the following seed users:
+    - Ordinary user: email: `user@test.com` / password: `Devpass1`
+    - Admin user: email: `admin@test.com` / password: `Devpass1`
+8. Customise the authentication setup. You may want to change one or more of 
 the following items: 
     - Aside from Devise's default attributes,
     the `User` model also has `role`, `first_name`, and `last_name` attributes. 
@@ -140,12 +142,17 @@ the following items:
     - Pundit is used for for authorization. The `User` model has an enum
     attribute called `role`. Its possible values are `:user` and `:admin`. The
     default value is `:user`.
-8. Customize the application colors by overwriting Bootstrap's variables in 
+9. Customize the application colors by overwriting Bootstrap's variables in 
 `app/assets/stylesheets/global.scss`.
-9. Remove unused items from the application, such as gems from the `Gemfile`, 
+10. Remove unused items from the application, such as gems from the `Gemfile`, 
 RSpec helpers, custom matchers and shared examples from `spec/support`. 
+11. Consider going through the [Zen Rails Security
+Checklist](https://github.com/brunofacca/zen-rails-security-checklist) before
+deploying the application to production.
 
 ## TODO
+- Install and configure the [Secure Headers
+gem](https://github.com/twitter/secureheaders).
 - Set up CodeClimate with Rubocop, Reek, Brakeman, and ESLint engines.
 - Set up continuous integration.
 - Use Yarn instead of gems to install front end libraries such as jQuery and 
