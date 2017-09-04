@@ -7,7 +7,7 @@ end
 
 # Choose between PostgreSQL and MySQL (comment out one of the following gems)
 gem 'pg', '~> 0.18'
-#gem 'mysql2', '~> 0.4'
+# gem 'mysql2', '~> 0.4'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
@@ -75,8 +75,8 @@ group :development, :test do
   gem 'capybara-screenshot'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
-  gem 'spring-commands-rspec'
   gem 'selenium-webdriver'
+  gem 'spring-commands-rspec'
   # code coverage analysis tool
   gem 'simplecov', require: false
 end
@@ -89,6 +89,8 @@ group :development do
   gem 'binding_of_caller'
   # A static analysis security vulnerability scanner for Ruby on Rails apps
   gem 'brakeman', require: false
+  # Checks for vulnerable versions of gems
+  gem 'bundler-audit'
   # Required by rack-mini-profiler' for call-stack profiling flamegraphs
   gem 'flamegraph'
   # Open "sent" e-mails in your browser instead of actually sending them
@@ -103,8 +105,8 @@ group :development do
   # Required by rack-mini-profiler for memory profiling
   gem 'memory_profiler'
   gem 'rubocop'
-  # Required by rack-mini-profiler for call-stack profiling
-  gem 'stackprof'     # For Ruby MRI 2.1+
+  # Required by rack-mini-profiler for call-stack profiling for Ruby MRI 2.1+
+  gem 'stackprof'
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
   gem 'web-console', '>= 3.3.0'
