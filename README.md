@@ -57,7 +57,7 @@ including:
     (unauthenticated users), ordinary users and admins;
 - Controller concerns such as `SkipAuthorization`.
 - User-friendly error messages (flash) on exceptions such as 
-`ActiveRecord::DeleteRestrictionError` and `Pundit::NotAuthorizedErrorand`.
+`ActiveRecord::DeleteRestrictionError` and `Pundit::NotAuthorizedError`.
 - User management interface for admins in `/admin/users` with pagination
 ([kaminari gem](https://github.com/kaminari/kaminari)) and searching/filtering 
 ([ransack
