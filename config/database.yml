@@ -8,8 +8,8 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   # The following username and password are used for both development and test
   # environments.
-  username: localdbuser
-  password: localdbpass
+  # username: localdbuser
+  # password: localdbpass
 
 development:
   <<: *default
