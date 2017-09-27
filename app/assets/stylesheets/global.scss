@@ -77,7 +77,6 @@ $font-family-sans-serif:
   "Helvetica Neue", Arial, sans-serif !default;
 $font-family-base:        $font-family-sans-serif !default;
 
-
 // Headings
 $headings-font-weight:    400;
 $headings-color:          desaturate($brand-primary, 20%);
@@ -125,6 +124,17 @@ label, dt {
   font-weight: 600 !important;
 }
 
+// Require Labels
+.required label {
+  font-weight: bold;
+}
+
+.required label:after {
+  color: #e32;
+  content: ' *';
+  display:inline;
+}
+
 // Search/filter panels
 .filter, panel {
   > .panel-heading {
@@ -149,14 +159,17 @@ $navbar-default-link-active-color:         white;
 $navbar-default-link-active-bg:            $brand-light;
 $navbar-default-link-disabled-color:       $gray-lighter;
 $navbar-default-link-disabled-bg:          $brand-light;
+
 // Navbar items font weight
 .nav > li > a {
   font-weight: 500;
 }
+
 // Prevent navbar from covering other elements
 body {
   padding-top: $navbar-height + 20px;
 }
+
 // Centralize logo vertically in the navbar
 .navbar-brand {
   padding-top: 10px !important;
@@ -224,6 +237,7 @@ dt, dd {
   // Rounded borders
   @extend .table-curved;
 }
+
 // Rounder borders
 .table-curved {
   border-collapse: separate;
