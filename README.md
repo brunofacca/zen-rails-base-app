@@ -81,7 +81,7 @@ gem](https://github.com/ryanb/letter_opener)).
 - High test coverage.
 
 ## Development Environment Dependencies
-- Ruby 2.5
+- Ruby 2.4.2
 - [Yarn](https://yarnpkg.com/en/docs/install)
 - Required for running JavaScript-enabled feature specs:
     - [Selenium](http://www.seleniumhq.org/projects/webdriver/)

@@ -7,7 +7,7 @@ end
 
 # Choose between PostgreSQL and MySQL (comment out one of the following gems)
 gem 'pg', '~> 0.21.0'
-gem 'mysql2', '~> 0.4.9'
+# gem 'mysql2', '~> 0.4.9'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
