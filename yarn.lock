@@ -3,5 +3,5 @@
 
 
 sweetalert2@^6.6.9:
-  version "6.6.9"
-  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.6.9.tgz#d3814561d4b2dba71ebda7f4497800e5e4e8a58a"
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/sweetalert2/-/sweetalert2-6.8.0.tgz#7111abdef90a374b0c423dc85d2f026c4ae272fa"
