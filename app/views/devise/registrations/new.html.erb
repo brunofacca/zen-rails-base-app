@@ -11,16 +11,16 @@
                  url: registration_path(resource_name),
                  html: { role: "form" }) do |f| %>
 
-      <div class="form-group">
+      <div class="form-group required">
         <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
       </div>
 
-      <div class="form-group">
+      <div class="form-group required">
         <%= f.label :password %>
         <%= f.password_field :password, class: "form-control" %>
       </div>
-      <div class="form-group">
+      <div class="form-group required">
         <%= f.label :password_confirmation %>
         <%= f.password_field :password_confirmation, class: "form-control" %>
       </div>
