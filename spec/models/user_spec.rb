@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   subject { User }
-  let(:user) { FactoryGirl.build(:user) }
+  let(:user) { FactoryBot.build(:user) }
 
   it { is_expected.to have_a_valid_factory }
 
@@ -15,7 +15,7 @@ RSpec.describe User, type: :model do
 
   describe '#password' do
     let(:user) do
-      FactoryGirl.build(:user,
+      FactoryBot.build(:user,
                         password: password,
                         password_confirmation: password)
     end

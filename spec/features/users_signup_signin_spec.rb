@@ -27,8 +27,8 @@ end
 # have customized all of Devise's views, some controllers and the way
 # validation errors are displayed. Hence, it is important to test everything.
 describe 'User self-management via UI', type: :feature, js: true do
-  let!(:user) { FactoryGirl.create(:user) }
-  let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
+  let!(:user) { FactoryBot.create(:user) }
+  let(:valid_attributes) { FactoryBot.attributes_for(:user) }
 
   it 'registers a new user and logs in via form' do
     visit '/'

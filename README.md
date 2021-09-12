@@ -1,12 +1,12 @@
 # Zen Rails Base Application
 
 ## Summary
-Base or "skeleton" application for Ruby on Rails 5.1 projects. Built to 
+Base or "skeleton" application for Ruby on Rails 6.1 projects. Built to 
 minimize the time spent writing boilerplate code and performing repetitive 
 setup tasks. 
 
 It comes with a preselected set of tools which I believe to be the most
-efficient and widely used. If you are looking for greater flexibility, an
+effective and widely used. If you are looking for greater flexibility, an
 application template which uses Rails's templating system such as [Rails
 Composer](http://www.railscomposer.com/) should be a better fit as it allows
 the user to choose which templating engine, test framework, JS framework and
@@ -16,7 +16,7 @@ Although this project is opinionated regarding tool choices, community
 feedback and contributions are always welcome and highly appreciated.
 
 ## Features
-It consists of a Rails 5.1.3 app, including:
+It consists of a Rails 6.1.4 app, including:
 - A selection of useful gems for development and debugging such as
 [rubocop](https://github.com/bbatsov/rubocop),
 [brakeman](https://github.com/presidentbeef/brakeman),
@@ -25,7 +25,7 @@ It consists of a Rails 5.1.3 app, including:
 [better_errors](https://github.com/charliesome/better_errors).
 - Preconfigured test environment, including:
     - [RSpec](http://rspec.info),
-    [FactoryGirl](https://github.com/thoughtbot/factory_girl),
+    [FactoryBot](https://github.com/thoughtbot/factory_bot),
     [Capybara](https://github.com/teamcapybara/capybara) configured to work with
     [Selenium](http://www.seleniumhq.org/projects/webdriver/) and
     [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/),
@@ -81,19 +81,17 @@ gem](https://github.com/ryanb/letter_opener)).
 - High test coverage.
 
 ## Development Environment Dependencies
-- Ruby 2.4.2
-- [Yarn](https://yarnpkg.com/en/docs/install)
+- Ruby 3.0.2
+- [Yarn](https://yarnpkg.com/getting-started/install) (requires [Node.js](https://nodejs.org/en/download/))
 - Required for running JavaScript-enabled feature specs:
     - [Selenium](http://www.seleniumhq.org/projects/webdriver/)
-    - [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/)
+    - [Google Chrome](https://www.google.com/chrome/)
+    - [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/): must match your installed version of 
+      Google Chrome.
     - [Xvfb](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml) if
     running feature specs on a console-only (no graphical interface) *nix
     environment.
 
-Consider using my [Zen Rails Development
-Environment](https://github.com/brunofacca/rails-development-environment). It
- consists of a Ubuntu 16.04 (Xenial Xerus) Vagrant VM with all of the 
- above dependencies preinstalled.
 
 ## Usage
 Setup tasks such as configuring  time zones, default locale and action mailer
@@ -124,13 +122,21 @@ in `packages.json` and their dependencies.
 
     2. Uncomment the section of `config/database.yml` corresponding to your 
     chosen DBMS.
-  
-7. Before attempting to run the application or its test suite, run `rails 
+
+    3. If you don't have a DB user (with a password) yet, create one.
+
+    4. Edit the following fields of`config/database.yml`:
+        * `database.development`
+        * `database.test`
+        * `default.username`
+        * `default.password`
+
+8. Before attempting to run the application or its test suite, run `rails 
 db:create db:migrate db:seed` within the project's root directory. That will 
 create the following seed users:
     - Ordinary user: email: `user@test.com` / password: `Devpass1`
     - Admin user: email: `admin@test.com` / password: `Devpass1`
-8. Customise the authentication setup. You may want to change one or more of 
+9. Customise the authentication setup. You may want to change one or more of 
 the following items: 
     - Aside from Devise's default attributes,
     the `User` model also has `role`, `first_name`, and `last_name` attributes. 
@@ -142,19 +148,21 @@ the following items:
     - Pundit is used for for authorization. The `User` model has an enum
     attribute called `role`. Its possible values are `:user` and `:admin`. The
     default value is `:user`.
-9. Customize the application colors by overwriting Bootstrap's variables in 
+10. Customize the application colors by overwriting Bootstrap's variables in 
 `app/assets/stylesheets/global.scss`.
-10. Remove unused items from the application, such as gems from the `Gemfile`, 
+11. Remove unused items from the application, such as gems from the `Gemfile`, 
 RSpec helpers, custom matchers and shared examples from `spec/support`. 
-11. Consider going through the [Zen Rails Security
+12. Consider going through the [Zen Rails Security
 Checklist](https://github.com/brunofacca/zen-rails-security-checklist) before
 deploying the application to production.
 
-## TODO
+## TODO (PRs welcome)
+- Dockerize. Set up all development dependencies in the `Dockerfile`.
+- Set up continuous integration.
+- Upgrade Bootstrap 3 to Bootstrap 5
 - Install and configure the [Secure Headers
 gem](https://github.com/twitter/secureheaders).
 - Set up CodeClimate with Rubocop, Reek, Brakeman, and ESLint engines.
-- Set up continuous integration.
 - Use Yarn instead of gems to install front end libraries such as jQuery and 
 Select2.
 - Add an asterisk to the labels of required form fields.
@@ -163,9 +171,7 @@ Select2.
 
 ## Authors
 
-- **Bruno Facca** - [Twitter](https://twitter.com/bruno_facca) - 
-[LinkedIn](https://www.linkedin.com/in/brunofacca/) - Email: bruno at facca 
-dot info
+- **Bruno Facca** - Email: bruno at facca dot info - [LinkedIn](https://www.linkedin.com/in/brunofacca/)
 
 ## Contributing
 

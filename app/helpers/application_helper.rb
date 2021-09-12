@@ -1,15 +1,5 @@
 # :nodoc:
 module ApplicationHelper
-  # Returns the current layout name. Allows asserting the rendered layout name
-  # in our feature specs as an alternative to the deprecated #render_template
-  # matcher.
-  def layout_name
-    # _layout is a private method, this may break at any time. It requires an
-    # array containing a stringas an argument but the string value does not
-    # affect the output.
-    controller.send :_layout, ['some_string_here']
-  end
-
   # Select the appropriate Boostrap class for Rails's flash messages
   def bootstrap_class_for(flash_type)
     case flash_type

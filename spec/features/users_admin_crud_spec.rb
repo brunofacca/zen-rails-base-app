@@ -15,8 +15,8 @@ describe 'User management for admins', type: :feature, js: true do
            .join(".+")}/
   end
 
-  let(:user) { FactoryGirl.create(:admin_user) }
-  let(:valid_attributes) { FactoryGirl.attributes_for(:user) }
+  let(:user) { FactoryBot.create(:admin_user) }
+  let(:valid_attributes) { FactoryBot.attributes_for(:user) }
 
   before(:each) { login_as(user) }
 
@@ -156,7 +156,7 @@ describe 'User management for admins', type: :feature, js: true do
   end
 
   describe 'Lists all existing users' do
-    let(:users) { FactoryGirl.create_pair(:user) << user }
+    let(:users) { FactoryBot.create_pair(:user) << user }
 
     it 'requires login' do
       logout(:user)
@@ -174,7 +174,7 @@ describe 'User management for admins', type: :feature, js: true do
 
     it 'displays all existing users' do
       # Create one more user
-      users = [user, FactoryGirl.create(:user)]
+      users = [user, FactoryBot.create(:user)]
 
       visit admin_users_path
       expect(page).to have_selector('tr.user', count: users.count)
@@ -238,7 +238,7 @@ describe 'User management for admins', type: :feature, js: true do
 
       it 'filters by full_name' do
         # The logged in user (created by let!(:user)) has a different name
-        user = FactoryGirl.create(:user,
+        user = FactoryBot.create(:user,
                                   first_name: 'Unique',
                                   last_name: 'Name')
         visit admin_users_path
@@ -250,7 +250,7 @@ describe 'User management for admins', type: :feature, js: true do
 
       it 'filters by role' do
         # The logged in user (created by let(:user)) has :admin role
-        user = FactoryGirl.create(:user, role: :user)
+        user = FactoryBot.create(:user, role: :user)
         visit admin_users_path
         expect(page).to have_selector('tr.user', count: 2)
         select 'user', from: 'q_role_eq'
@@ -262,7 +262,7 @@ describe 'User management for admins', type: :feature, js: true do
 
   describe 'delete a user' do
     # Create a new user so the logged-in user does not get deleted
-    let(:deletable_user) { FactoryGirl.create(:user) }
+    let(:deletable_user) { FactoryBot.create(:user) }
 
     def click_delete
       find_by_i18n_title('actions.delete').click

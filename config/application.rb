@@ -26,7 +26,7 @@ module ZenRailsBaseApp
     config.generators do |g|
       # Disable CoffeeScript
       g.javascript_engine :js
-      # Configure RSpec and FactoryGirl
+      # Configure RSpec and FactoryBot
       g.test_framework :rspec,
                        view_specs: false,
                        helper_specs: false,
@@ -35,7 +35,7 @@ module ZenRailsBaseApp
                        request_specs: true,
                        # Use fixture replacements (factories)
                        fixtures: true
-      g.fixture_replacement :factory_girl, dir: 'spec/factories'
+      g.fixture_replacement :factory_bot, dir: 'spec/factories'
     end
   end
 end

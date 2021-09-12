@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe 'Contact form via UI', type: :feature, js: true do
-  let(:valid_attributes) { FactoryGirl.attributes_for(:contact_form) }
+  let(:valid_attributes) { FactoryBot.attributes_for(:contact_form) }
 
   it 'given valid input, it delivers a message' do
     visit '/contact'
