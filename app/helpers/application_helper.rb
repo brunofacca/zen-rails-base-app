@@ -20,8 +20,7 @@ module ApplicationHelper
   def display_validation_errors(object)
     return '' if object.errors.empty?
 
-    header = I18n.t('activerecord.errors.template.header',
-                    count: object.errors.count)
+    header = I18n.t('activerecord.errors.template.header', count: object.errors.count)
     msgs = object.errors.full_messages.map { |msg| content_tag(:li, msg) }.join
 
     html = <<-HTML

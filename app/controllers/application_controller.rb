@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   # Rescue Pundit::NotAuthorizedError, which happens when a user tries to
-  # access a resource for which he does not have permission.
+  # access a resource for which they do not have permission.
   def show_user_not_authorized_error
     redirect_to request.referer || root_path,
                 flash: { error: t(:not_authorized, scope: 'authorization') }

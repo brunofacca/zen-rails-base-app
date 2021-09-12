@@ -17,13 +17,13 @@ RSpec.describe User, type: :model do
 
   describe '#password' do
     let(:user) do
-      FactoryBot.build(:user,
-                       password: password,
-                       password_confirmation: password)
+      FactoryBot.build(:user, password: password, password_confirmation: password)
     end
+
     let(:expected_error) do
       I18n.t 'activerecord.errors.models.user.attributes.password.weak_password'
     end
+
     before(:each) { user.valid? }
 
     context 'with less than 8 characters' do

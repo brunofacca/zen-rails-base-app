@@ -8,13 +8,9 @@ RSpec.shared_examples 'url validation' do |attribute|
     # Literal array syntax is required for \n to be parsed
     "http://www.validurl.com\n<script>dangerousJs();</script>",
     'http://foo.bar?q=Spaces should be encoded'
-  ].freeze
+  ]
 
-  VALID_URLS ||= [
-    'http://validurl.com',
-    'https://validurl.com/blah_blah',
-    'https://www.validurl.com/foo/?bar=baz&inga=42&quux'
-  ].freeze
+  VALID_URLS ||= %w[http://validurl.com https://validurl.com/blah_blah https://www.validurl.com/foo/?bar=baz&inga=42&quux]
 
   context "with invalid URLs in #{attribute}" do
     INVALID_URLS.each do |url|

@@ -2,6 +2,8 @@
 
 # User model used for authentication by Devise
 class User < ApplicationRecord
+  MINIMUM_PASSWORD_LENGTH = 8
+
   # Use slugs instead of DB IDs in URLs
   include FriendlyId
   friendly_id :full_name, use: :slugged
@@ -55,13 +57,16 @@ class User < ApplicationRecord
 
   # TODO: extract this to a validator class
   def password_strength
-    minimum_length = 8
-    # Regex matches at least one lower case letter, one uppercase and one digit
-    complexity_regex = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/
     # When a user is updated but not its password, the password param is nil
-    if password.present? &&
-       (password.length < minimum_length || !password.match(complexity_regex))
+    if password.present? && !strong_password?
       errors.add :password, :weak_password
     end
+  end
+
+  def strong_password?
+    # Regex matches at least one lower case letter, one uppercase, and one digit
+    complexity_regex = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/
+
+    return password.length >= MINIMUM_PASSWORD_LENGTH && password.match(complexity_regex)
   end
 end

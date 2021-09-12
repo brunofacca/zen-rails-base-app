@@ -21,20 +21,17 @@ class ApplicationRecord < ActiveRecord::Base
   #
   # Usage:
   # 1. Add enum keys and their corresponding translations to a i18n dictionary
-  #    as explained in the usage instructions for ::translate_enum_key below.
+  #    as explained in the usage instructions for .translate_enum_key below.
   # 2. To generate the select box in the view:
   #    <%= f.select :role, MyModel.i18n_options_for_enum_select(:my_enum) %>
   def self.i18n_options_for_enum_select(enum_name, integer_instead_of_key: false)
     # model_name is available within all models
     model_klass = model_name.to_s.constantize
     enum_hash = model_klass.send(enum_name.to_s.pluralize.to_sym)
+
     enum_hash.map do |original_key, integer_value|
       translated_key = translate_enum_key(enum_name, original_key)
-      if integer_instead_of_key
-        [translated_key, integer_value]
-      else
-        [translated_key, original_key]
-      end
+      integer_instead_of_key ? [translated_key, integer_value] : [translated_key, original_key]
     end
   end
 
