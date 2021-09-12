@@ -18,19 +18,17 @@ module MiscTestHelpers
     # only called when we do not raise Pundit::NotAuthorizedError.
     allow_any_instance_of(ApplicationController).to receive(:verify_authorized)
 
-    # This does NOT work in tests that perform more than one request, because
-    # each request has a different controller instance and
-    # #expect_any_instance_of can't handle messages to more than one object. See
-    # https://relishapp.com/rspec/rspec-mocks/docs/working-with-legacy-code/any-instance
-    expectation = expect_any_instance_of(ApplicationController).to \
-      receive(:authorize)
+    # TODO: replace `allow_any_instance_of` with `expect_any_instance_of`. Find a way of making `expect_any_instance_of`
+    #  work in tests that perform more than one request. Currently, it raises an exception like "The message 'authorize'
+    #  was received by ... but has already been received by ..."
+    expectation = allow_any_instance_of(ApplicationController).to receive(:authorize)
     # Simulate a "not authorized" scenario
     expectation.and_raise(Pundit::NotAuthorizedError) unless authorized
   end
 
   # This helper allows custom matchers and shared examples to guess factory
   # names based on model names. For this to work, factories must be named
-  # accordingly to the naming convention suggested by the FactoryGirl docs.
+  # accordingly to the naming convention suggested by the FactoryBot docs.
   def factory_name(model)
     model.name.underscore.to_sym
   end

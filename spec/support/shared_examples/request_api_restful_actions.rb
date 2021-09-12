@@ -37,14 +37,14 @@ RSpec.shared_examples 'a RESTful JSON API',
     login_admin
   end
 
-  let(:record) { FactoryGirl.create(resource_singular) }
-  let(:records) { FactoryGirl.create_pair(resource_singular) }
+  let(:record) { FactoryBot.create(resource_singular) }
+  let(:records) { FactoryBot.create_pair(resource_singular) }
   # Models that validate the presence of associated records require some
   # hacking in the factory to include associations in #attributes_for
-  let(:valid_attributes) { FactoryGirl.attributes_for(resource_singular) }
+  let(:valid_attributes) { FactoryBot.attributes_for(resource_singular) }
   # All factories must have a trait called :invalid
   let(:invalid_attributes) do
-    FactoryGirl.attributes_for(resource_singular, :invalid)
+    FactoryBot.attributes_for(resource_singular, :invalid)
   end
   let(:response_json) { JSON.parse(response.body) }
   let(:request_path) do

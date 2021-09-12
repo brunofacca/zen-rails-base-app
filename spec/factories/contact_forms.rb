@@ -1,8 +1,8 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :contact_form do
-    name 'John Doe'
-    email 'john@doe.com'
-    message 'Hello'
+    name { 'John Doe' }
+    email { 'john@doe.com' }
+    message { 'Hello' }
 
     trait :invalid do
       email nil

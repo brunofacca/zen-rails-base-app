@@ -27,3 +27,6 @@
 
 # SimpleCov reports
 coverage/
+
+# RubyMine project config files
+.idea/

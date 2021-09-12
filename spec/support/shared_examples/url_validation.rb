@@ -17,7 +17,7 @@ RSpec.shared_examples 'url validation' do |attribute|
   context "with invalid URLs in #{attribute}" do
     INVALID_URLS.each do |url|
       it "is invalid with #{url.dump}" do
-        object = FactoryGirl.build(factory_name(subject), attribute => url)
+        object = FactoryBot.build(factory_name(subject), attribute => url)
         object.valid?
         expect(object.errors[attribute]).to include('is invalid')
       end
@@ -27,7 +27,7 @@ RSpec.shared_examples 'url validation' do |attribute|
   context "with valid URLs in #{attribute}" do
     VALID_URLS.each do |url|
       it "is valid with #{url}" do
-        object = FactoryGirl.build(factory_name(subject), attribute => url)
+        object = FactoryBot.build(factory_name(subject), attribute => url)
         expect(object).to be_valid
       end
     end

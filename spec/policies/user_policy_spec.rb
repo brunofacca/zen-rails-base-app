@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 describe UserPolicy do
-  let!(:ordinary_user) { FactoryGirl.create(:user) }
-  let!(:admin_user) { FactoryGirl.create(:admin_user) }
+  let!(:ordinary_user) { FactoryBot.create(:user) }
+  let!(:admin_user) { FactoryBot.create(:admin_user) }
 
   describe 'scope' do
     subject(:policy_scope) do

@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe ContactForm, type: :model do
-  let(:valid_attributes) { FactoryGirl.attributes_for(:contact_form) }
+  let(:valid_attributes) { FactoryBot.attributes_for(:contact_form) }
 
   # Custom matchers such as be_invalid_without_a and have_a_valid_factory do not
   # work as ContactForm is not a real model (it is a subclass of

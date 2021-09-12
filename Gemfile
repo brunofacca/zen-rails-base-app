@@ -1,27 +1,29 @@
 source 'https://rubygems.org'
 
+ruby '~> 3.0.2'
+
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
   "https://github.com/#{repo_name}.git"
 end
 
 # Choose between PostgreSQL and MySQL (comment out one of the following gems)
-gem 'pg', '~> 0.21.0'
-# gem 'mysql2', '~> 0.4.9'
+gem 'pg'
+# gem 'mysql2'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.3'
+gem 'rails', '~> 6.1.4'
 # Use Puma as the app server
-gem 'puma', '~> 3.10'
+gem 'puma'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0', '>= 5.0.6'
+gem 'sass-rails'
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '~> 3.2'
+gem 'uglifier'
 # Turbolinks makes navigating your web application faster. Read more:
 # https://github.com/turbolinks/turbolinks
-gem 'turbolinks', '~> 5.0', '>= 5.0.1'
+gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.7'
+gem 'jbuilder'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -70,10 +72,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger
   # console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.15', '>= 2.15.1'
+  gem 'capybara'
   gem 'capybara-email'
   gem 'capybara-screenshot'
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
   gem 'selenium-webdriver'
   gem 'spring-commands-rspec'
@@ -99,7 +101,7 @@ group :development do
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0', '>= 2.0.1'
+  gem 'spring-watcher-listen'
   # Database, call-stack and memory profiling
   gem 'rack-mini-profiler'
   # Required by rack-mini-profiler for memory profiling
@@ -109,7 +111,7 @@ group :development do
   gem 'stackprof'
   # Access an IRB console on exception pages or by using <%= console %> anywhere
   # in the code.
-  gem 'web-console', '~> 3.5', '>= 3.5.1'
+  gem 'web-console'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

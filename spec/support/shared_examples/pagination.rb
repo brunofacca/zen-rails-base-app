@@ -30,7 +30,7 @@ RSpec.shared_examples 'pagination' do |model:, page_path:, factory_args: []|
   context 'with 3 records and maximum records per page set to 2' do
     before(:each) do
       # Create 2 more records, total count is now 3
-      FactoryGirl.create_pair(factory_name(model), *factory_args)
+      FactoryBot.create_pair(factory_name(model), *factory_args)
       expect(model.count).to eq(3)
       visit page_path
       expect(page).to have_selector('ul.pagination')
