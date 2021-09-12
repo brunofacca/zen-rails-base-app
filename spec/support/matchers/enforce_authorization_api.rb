@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :enforce_authorization_api do
   expected_error =
     { 'error' => 'User is not authorized to access this resource.' }

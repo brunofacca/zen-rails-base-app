@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :be_invalid_without_a do |attribute, **factory_args|
   match do |model|
     object = FactoryBot.build(factory_name(model), factory_args)

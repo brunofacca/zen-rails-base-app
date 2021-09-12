@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :have_single_record do |model, slug|
   name_singular = model.name.underscore.singularize
   match do |page|

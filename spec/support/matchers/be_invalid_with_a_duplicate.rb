@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :be_invalid_with_a_duplicate do |attribute|
   match do |model|
     factory = factory_name(model)

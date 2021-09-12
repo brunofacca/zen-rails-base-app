@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # :nodoc:
 class ContactFormsController < ApplicationController
   # This controller does not require authorization or authentication

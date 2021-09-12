@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Base authorization policies for Pundit
 class ApplicationPolicy
   attr_reader :user, :record

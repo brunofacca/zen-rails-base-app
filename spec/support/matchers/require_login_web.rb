@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :require_login_web do
   match do |page|
     # Expect a redirection to the login page

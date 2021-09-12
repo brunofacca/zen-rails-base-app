@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec::Matchers.define :require_login_api do
   expected_error =
     { 'error' => 'You need to sign in or sign up before continuing.' }

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_examples 'url validation' do |attribute|
   INVALID_URLS ||= [
     'invalidurl',

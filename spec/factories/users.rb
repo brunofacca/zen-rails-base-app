@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :user do
     sequence(:email) { |n| "user#{n}@test.com" }
@@ -16,9 +18,6 @@ FactoryBot.define do
       role { 'admin' }
     end
 
-    after(:create) do |user|
-      # Required when using Devise's confirmable module
-      user.confirm
-    end
+    after(:create, &:confirm)
   end
 end

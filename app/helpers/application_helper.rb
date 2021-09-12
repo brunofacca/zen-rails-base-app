@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # :nodoc:
 module ApplicationHelper
   # Select the appropriate Boostrap class for Rails's flash messages

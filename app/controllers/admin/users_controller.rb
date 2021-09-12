@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Admin
   # This controller is for admin use only (user management by admins). The form
   # provided by Devise's registerable module (which allows users to edit their

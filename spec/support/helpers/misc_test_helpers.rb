@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Simple helpers that are used across multiple specs.
 module MiscTestHelpers
   def fill_user_fields(valid_attributes)

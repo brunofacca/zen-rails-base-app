@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 Rails.application.configure do
   # Settings specified here will take precedence over those in
   # config/application.rb.
   config.middleware.use ExceptionNotification::Rack,
                         email: {
                           email_prefix: '[EXCEPTION] ',
-                          sender_address: %[Project Name" <replace@me.com>],
+                          sender_address: %(Project Name" <replace@me.com>),
                           exception_recipients: %w[replace@me.com]
                         }
 
@@ -33,7 +35,7 @@ Rails.application.configure do
   # rails_12factor gem which was required in Rails 4. See:
   # https://devcenter.heroku.com/articles/getting-started-with-rails5#heroku-gems
   if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger           = ActiveSupport::Logger.new($stdout)
     logger.formatter = config.log_formatter
     config.logger    = ActiveSupport::TaggedLogging.new(logger)
   end

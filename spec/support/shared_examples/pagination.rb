@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Usage:
 #
 # Do *not* use include_examples as it will run the before and after blocks
@@ -44,7 +46,7 @@ RSpec.shared_examples 'pagination' do |model:, page_path:, factory_args: []|
       within 'ul.pagination' do
         click_link '2'
       end
-      expect(page).to have_current_path(page_path + '?page=2')
+      expect(page).to have_current_path("#{page_path}?page=2")
       expect(page).to have_selector("tr.#{name_singular}", count: 1)
     end
   end

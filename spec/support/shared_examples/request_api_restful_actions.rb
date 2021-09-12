@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # USAGE
 #
 # Parameters:
@@ -54,7 +56,6 @@ RSpec.shared_examples 'a RESTful JSON API',
 
   describe 'GET #index', if:
     controller_has_action?(controller_class, :index) do
-
     before(:each) do
       # Test data is lazily created. Here we must force it to be created.
       records
@@ -88,7 +89,6 @@ RSpec.shared_examples 'a RESTful JSON API',
 
   describe 'GET #show', if:
     controller_has_action?(controller_class, :show) do
-
     it 'requires authentication' do
       logout_example
       get request_path
@@ -136,7 +136,6 @@ RSpec.shared_examples 'a RESTful JSON API',
 
   describe 'POST #create', if:
     controller_has_action?(controller_class, :create) do
-
     before(:each) do
       # A user cannot be logged-in before signing-up
       logout_example if resource_singular == :user
@@ -192,7 +191,6 @@ RSpec.shared_examples 'a RESTful JSON API',
 
   describe 'PATCH #update', if:
     controller_has_action?(controller_class, :update) do
-
     it 'requires authentication' do
       logout_example
       patch request_path, resource_singular => valid_attributes
@@ -235,7 +233,6 @@ RSpec.shared_examples 'a RESTful JSON API',
 
   describe 'DELETE #destroy', if:
     controller_has_action?(controller_class, :destroy) do
-
     it 'requires authentication' do
       logout_example
       delete request_path
