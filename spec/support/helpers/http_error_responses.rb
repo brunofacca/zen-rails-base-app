@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module HttpErrorResponses
   def respond_with_http_error_instead_of_exception
     env_config = Rails.application.env_config

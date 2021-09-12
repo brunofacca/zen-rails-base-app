@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # User model used for authentication by Devise
 class User < ApplicationRecord
   # Use slugs instead of DB IDs in URLs

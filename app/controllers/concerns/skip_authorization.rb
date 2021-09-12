@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This module should be included in controllers that do not require
 # authorization. To use it, add the following line to the controller:
 # include SkipAuthorization

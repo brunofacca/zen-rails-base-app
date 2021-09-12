@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 def login_via_form(email, password)
@@ -19,7 +21,7 @@ RSpec::Matchers.define :be_logged_in do |user_full_name|
   end
   failure_message do
     "expected to find a the user's full name (#{user_full_name}) in the " \
-    "navbar. Found '#{find(".navbar-default").text}' instead."
+    "navbar. Found '#{find('.navbar-default').text}' instead."
   end
 end
 

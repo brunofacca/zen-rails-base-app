@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DeviseControllerSpecLogin
   # Call within a test (it block) or before(:each) { login_admin }
   def login_admin

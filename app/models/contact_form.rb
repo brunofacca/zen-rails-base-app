@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # :nodoc:
 class ContactForm < MailForm::Base
   attribute :name, validate: true

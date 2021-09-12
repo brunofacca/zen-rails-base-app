@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'layout and UI elements', type: :feature, js: true do
@@ -8,7 +10,7 @@ describe 'layout and UI elements', type: :feature, js: true do
     it 'displays the appropriate layout and UI elements' do
       visit '/'
       within '.navbar-default' do
-        expect(page).to have_link(I18n.t('navigation.home'),  href: root_path)
+        expect(page).to have_link(I18n.t('navigation.home'), href: root_path)
         expect(page).to have_link(I18n.t('navigation.contact'), href: contact_path)
         expect(page).to have_link(I18n.t('navigation.sign-up'), href: new_user_registration_path)
         expect(page).to have_link(I18n.t('navigation.sign-in'), href: new_user_session_path)

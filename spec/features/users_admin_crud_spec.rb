@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 describe 'User management for admins', type: :feature, js: true do
@@ -239,8 +241,8 @@ describe 'User management for admins', type: :feature, js: true do
       it 'filters by full_name' do
         # The logged in user (created by let!(:user)) has a different name
         user = FactoryBot.create(:user,
-                                  first_name: 'Unique',
-                                  last_name: 'Name')
+                                 first_name: 'Unique',
+                                 last_name: 'Name')
         visit admin_users_path
         expect(page).to have_selector('tr.user', count: 2)
         fill_in 'q_full_name_cont', with: 'Unique Name'

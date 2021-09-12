@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # :nodoc:
 class ApplicationController < ActionController::Base
   # Authorization gem
@@ -33,6 +35,7 @@ class ApplicationController < ActionController::Base
   # Choose from 3 types of layouts: guest (not logged-in), user or admin
   def set_layout
     return 'guest' unless user_signed_in?
+
     current_user.admin? ? 'admin' : 'user'
   end
 

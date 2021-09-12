@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Authorization policy for Admin::UsersController. *Not* used by Devise's
 # controllers.
 class UserPolicy < ApplicationPolicy

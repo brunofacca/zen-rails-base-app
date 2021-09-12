@@ -159,6 +159,7 @@ deploying the application to production.
 ## TODO (PRs welcome)
 - Dockerize. Set up all development dependencies in the `Dockerfile`.
 - Set up continuous integration.
+- Fix remaining Rubocop offenses
 - Upgrade Bootstrap 3 to Bootstrap 5
 - Install and configure the [Secure Headers
 gem](https://github.com/twitter/secureheaders).

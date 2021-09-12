@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 unless Rails.env.development?
   class ForbiddenDBSeedError < StandardError; end
   raise ForbiddenDBSeedError,
@@ -20,7 +22,7 @@ User.create!([
                  first_name: 'Admin',
                  last_name: 'User',
                  # Required when using Devise's Confirmable module
-                 confirmed_at: Time.zone.today,
+                 confirmed_at: Time.zone.today
                }, {
                  # Ordinary user (non-admin)
                  email: 'user@test.com',
@@ -29,6 +31,6 @@ User.create!([
                  role: :user,
                  first_name: 'Ordinary',
                  last_name: 'User',
-                 confirmed_at: Time.zone.today,
+                 confirmed_at: Time.zone.today
                }
              ])
