@@ -13,6 +13,7 @@ class ContactFormsController < ApplicationController
   def create
     @contact_form = ContactForm.new(params[:contact_form])
     @contact_form.request = request
+
     if @contact_form.deliver
       flash[:success] = t('.success')
       render html: '', layout: true
