@@ -28,7 +28,7 @@ It consists of a Rails 6.1.4 app, including:
     [FactoryBot](https://github.com/thoughtbot/factory_bot),
     [Capybara](https://github.com/teamcapybara/capybara) configured to work with
     [Selenium](http://www.seleniumhq.org/projects/webdriver/) and
-    [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/),
+    [ChromeDriver](https://sites.google.com/chromium.org/driver/),
     [Database Cleaner](https://github.com/DatabaseCleaner/database_cleaner),
     and [SimpleCov](https://github.com/colszowka/simplecov).
     - General purpose test helpers, custom matchers and shared examples in
