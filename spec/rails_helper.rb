@@ -71,24 +71,6 @@ RSpec.configure do |config|
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
-  # Display all JavaScript errors (from the headless browser console) when
-  # running JS-enabled feature specs with Selenium and Chrome. Should also
-  # work with Firefox.
-  class JavaScriptError < StandardError; end
-  RSpec.configure do |config|
-    config.after(:each, type: :feature, js: true) do
-      errors = page.driver
-                   .browser
-                   .manage
-                   .logs
-                   .get(:browser)
-                   .select { |e| e.level == 'SEVERE' && e.message.present? }
-                   .map(&:message)
-                   .to_a
-      raise JavaScriptError, errors.join("\n\n") if errors.present?
-    end
-  end
-
   # Add ability to login/out programatically in controller specs (Devise)
   config.include Devise::Test::ControllerHelpers, type: :controller
   # Load the helpers in spec/support/helpers/devise_controller_spec_login.rb
@@ -162,4 +144,22 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+end
+
+# Display all JavaScript errors (from the headless browser console) when
+# running JS-enabled feature specs with Selenium and Chrome. Should also
+# work with Firefox.
+class JavaScriptError < StandardError; end
+RSpec.configure do |config|
+  config.after(:each, type: :feature, js: true) do
+    errors = page.driver
+                 .browser
+                 .manage
+                 .logs
+                 .get(:browser)
+                 .select { |e| e.level == 'SEVERE' && e.message.present? }
+                 .map(&:message)
+                 .to_a
+    raise JavaScriptError, errors.join("\n\n") if errors.present?
+  end
 end

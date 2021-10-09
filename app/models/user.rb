@@ -58,15 +58,15 @@ class User < ApplicationRecord
   # TODO: extract this to a validator class
   def password_strength
     # When a user is updated but not its password, the password param is nil
-    if password.present? && !strong_password?
-      errors.add :password, :weak_password
-    end
+    return unless password.present? && !strong_password?
+
+    errors.add :password, :weak_password
   end
 
   def strong_password?
     # Regex matches at least one lower case letter, one uppercase, and one digit
     complexity_regex = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])/
 
-    return password.length >= MINIMUM_PASSWORD_LENGTH && password.match(complexity_regex)
+    password.length >= MINIMUM_PASSWORD_LENGTH && password.match(complexity_regex)
   end
 end

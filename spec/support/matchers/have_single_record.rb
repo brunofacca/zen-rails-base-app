@@ -8,6 +8,6 @@ RSpec::Matchers.define :have_single_record do |model, slug|
   end
   failure_message do |page|
     "expected to find a single #{name_singular} in the page with slug #{slug}."\
-    " Found #{page.all("tr##{name_singular}_#{slug}").count} instead."
+      " Found #{page.all("tr##{name_singular}_#{slug}").count} instead."
   end
 end

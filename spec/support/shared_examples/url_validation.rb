@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.shared_examples 'url validation' do |attribute|
-  INVALID_URLS ||= [
+  invalid_urls = [
     'invalidurl',
     'inval.lid/urlexample',
     'javascript:dangerousJs()//http://www.validurl.com',
@@ -10,10 +10,10 @@ RSpec.shared_examples 'url validation' do |attribute|
     'http://foo.bar?q=Spaces should be encoded'
   ]
 
-  VALID_URLS ||= %w[http://validurl.com https://validurl.com/blah_blah https://www.validurl.com/foo/?bar=baz&inga=42&quux]
+  valid_urls = %w[http://validurl.com https://validurl.com/blah_blah https://www.validurl.com/foo/?bar=baz&inga=42&quux]
 
   context "with invalid URLs in #{attribute}" do
-    INVALID_URLS.each do |url|
+    invalid_urls.each do |url|
       it "is invalid with #{url.dump}" do
         object = FactoryBot.build(factory_name(subject), attribute => url)
         object.valid?
@@ -23,7 +23,7 @@ RSpec.shared_examples 'url validation' do |attribute|
   end
 
   context "with valid URLs in #{attribute}" do
-    VALID_URLS.each do |url|
+    valid_urls.each do |url|
       it "is valid with #{url}" do
         object = FactoryBot.build(factory_name(subject), attribute => url)
         expect(object).to be_valid
