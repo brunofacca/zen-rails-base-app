@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-:nodoc
+# :nodoc
 class ApplicationRecord < ActiveRecord::Base
   # Tell Rails not to use "application_records" as table name for all classes
   # inheriting "ApplicationRecord" (STI).

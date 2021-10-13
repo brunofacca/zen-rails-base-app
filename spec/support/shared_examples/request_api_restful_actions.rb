@@ -17,7 +17,7 @@
 #                 *comparable_attributes: [:id, :email, :first_name, :last_name]
 
 RSpec.shared_examples 'a RESTful JSON API',
-  http_error_instead_of_exception: true do |controller_class:,
+                      http_error_instead_of_exception: true do |controller_class:,
                                             resource_path:,
                                             comparable_attributes:,
                                             is_singular_resource: false|
